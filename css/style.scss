@@ -1,0 +1,365 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300');
+
+html {
+
+}
+body {
+  font-family: 'Roboto';
+  margin:0;
+  font-weight:200;
+  position:relative;
+}
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+#main {
+  transition: margin-left .5s;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+#menu-toggle {
+  * {
+    transition: .25s ease-in-out;
+    box-sizing: border-box;
+  }
+
+  width:100px;
+  height:100px;
+  background-color:rgba(255, 255, 255, .4);
+  margin: 0px auto;
+  position: fixed;
+  z-index: 9999;
+  cursor: pointer;
+  border-radius: 5px;
+  span {
+    display: block;
+    background: #566973;
+    border-radius: 2px;
+  }
+  &:hover {
+    background: rgba(255,255,255,.8);
+  }
+  #hamburger{
+    position: absolute;
+    height:100%;
+    width:100%;
+    span {
+      width: 60px;
+      height:4px;
+      position: relative;
+      top:24px;
+      left:20px;
+      margin:10px 0;
+      &:nth-child(1) {
+        transition-delay:.5s
+      }
+      &:nth-child(2) {
+        transition-delay:.625s
+      }
+      &:nth-child(3) {
+        transition-delay:.75s
+      }
+    }  
+  }
+  #cross{
+    position: absolute;
+    height:100%;
+    width:100%;
+    transform: rotate(45deg);
+    span {
+    
+      &:nth-child(1) {
+        width: 4px;
+        height:0%;
+        position: absolute;
+        top:10%;
+        left:48px;
+        transition-delay:0s
+      }
+      &:nth-child(2) {
+        width: 0%;
+        height:4px;
+        position: absolute;
+        top:48px;
+        left:10%;
+        transition-delay:.25s
+      }
+    }  
+  }
+}
+
+#menu-toggle.open {
+  #hamburger {
+    span {
+      width:0%;
+      &:nth-child(1) {
+        transition-delay:0s
+      }
+      &:nth-child(2) {
+        transition-delay:.125s
+      }
+      &:nth-child(3) {
+        transition-delay:.25s
+      }
+    }
+  }
+  #cross {
+    span {
+
+      &:nth-child(1) {
+        height: 80%;
+        transition-delay:.625s
+      }
+      &:nth-child(2) {
+        width: 80%;
+        transition-delay:.375s
+      }
+    }
+  }
+}
+
+
+
+/* Section top START */
+.section.top {
+  box-sizing: border-box;
+  text-align: center;
+  background: linear-gradient(141deg, #ccc 25%, #eee 40%, #ddd 55%);
+  color:#555;
+  font-size:30px;
+  padding-top:35vh;
+  height: 100vh;
+  overflow:hidden; 
+
+  div {
+    display: inline-block;
+    overflow:hidden;
+  }
+  
+  .static.texttop {
+    animation: showup 6s infinite
+  }
+  .animated.texttop {
+    width:0px;
+    animation: reveal 6s infinite
+  }
+
+  .animated.texttop span {
+    margin-left: -555px;
+    animation: slidein 6s infinite
+  }
+
+  p{
+    font-size:14px;
+    color:#999;
+    margin-top:50px;
+  }
+  @keyframes showup {
+    0% {opacity: 0}
+    20% {opacity: 1}
+    80% {opacity: 1}
+    100% {opacity: 0}
+  }
+  @keyframes slidein {
+    0% {margin-left: -800px}
+    20% {margin-left: -800px}
+    40% {margin-left: 0px}
+    100% {margin-left: 0px}
+  }
+  @keyframes reveal {
+    0% {opacity: 0; width:0px;}
+    20% {opacity: 1; width:0px;}
+    30% { width:555px }
+    80% {opacity: 1}
+    100% {opacity: 0; width: 555px;}
+  }
+}
+
+.parallax {
+  /* The image used */
+  background-image: url("https://wagmadesigns.com/wp-content/uploads/2019/03/Parallax-home-img-5.jpg");
+
+  /* Set a specific height */
+  min-height:500px;
+  min-width:700px;
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.section.center {
+  box-sizing: border-box;
+  height:100vh;
+  background: linear-gradient(141deg, #ccc 25%, #eee 40%, #ddd 55%);
+  color:#555;
+  font-size:32px;
+  padding-top:5vh;
+  display:flex;
+  justify-content: center;
+
+  .showoff-container {
+    box-sizing: border-box;
+    display: flex;
+    width: 90vw;
+    height: 90vh;
+    background-color: #ffffff;
+    padding:1%;
+    flex-wrap: wrap;
+  }
+
+  .showoff {
+    box-sizing: border-box;
+    display: flex;
+    flex-basis:48%;
+    &.col-6 {
+      background-color: #222222;
+      margin:1%;
+    }
+  }
+}
+
+.topleft {
+  height: 100px;
+  width: 100%;
+  #svgholder {
+    padding: 15% 5% 0 5%;
+    width:90%;
+  }
+  #svg#Layer_1 {
+    margin: 0 auto;
+  }
+
+  path {
+
+
+    animation: dash 3s infinite;
+  }
+  @keyframes dash {
+    0% {
+      stroke-dasharray: 140%;
+      stroke-dashoffset: 140%;
+    }
+    80% {
+      fill:#e6e6e600;
+    }
+    100% {
+      stroke-dasharray: 140% ;
+      stroke-dashoffset: 0%;
+      fill:#e6e6e6;
+    }
+  }
+}
+
+/* Second area : Mix blend mode CSS */
+
+
+#mixmode {
+  margin:1%;
+  height:auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+}
+
+.text_holder_mix_blend_mode {
+  position:relative;
+  overflow:hidden;
+  width:auto;
+  background-color: black;
+  filter: brightness(200%);
+}
+
+.text {
+  width: auto;
+  color:white;
+  font-size:100px;
+  font-weight: bold;
+  font-family: sans-serif;
+  text-transform: uppercase;
+  position: relative;
+}
+
+.text::before {
+  content: attr(data-text);
+  position:absolute;
+  mix-blend-mode: difference;
+  filter: blur(0.02em);
+}
+
+.gradient {
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  background: linear-gradient(45deg, darkgreen, lightgreen, darkgreen);
+  mix-blend-mode: multiply;
+}
+
+
+.spotlight {
+  position:absolute;
+  top:-100%;
+  left: -100%;
+  right:0;
+  bottom:0;
+  background:
+  radial-gradient(
+    circle,
+    white,
+    transparent 25%
+  ) center / 25% 65%,
+  radial-gradient(
+    circle,
+    white,
+    black 25%
+  ) center / 12.5% 12.5%;
+  animation: light 8s linear infinite;
+  mix-blend-mode: color-dodge;
+}
+
+@keyframes light {
+  to {
+    transform: translate(50%, 50%);
+  }
+}
